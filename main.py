@@ -1,10 +1,17 @@
-from bot import bot
+﻿from bot import bot
 from handlers.command_handler import show_help, random_map
 from handlers.match_handler import store_kd,start_kd_random_command, reset_participants, view_participants, select_captains, start_random_match, move_to_voice_channels
 from handlers.greeting import greet
 from handlers.rolling import roll_dice, countdown
 from handlers.saveid import get_game_id, save_game_id
-from handlers.captain_mock import select_captains_mock
+from handlers.game_handler import start_game, new_game, play_round, get_opportunity, game_rule, trigger_encounter, trigger_event
+from handlers.sign import sign_command
+from handlers.database import Database
+from handlers.off import OfflineHandler
+from khl import Bot, Message, MessageTypes, Event, EventTypes
+
+db = Database()
+
 
 # 注册 /帮助 命令
 bot.command(name="help")(show_help)
@@ -51,8 +58,23 @@ bot.command(name="kd")(store_kd)
 # 注册命令 /kdrandom 开始kd匹配
 bot.command(name="kdrandom")(start_kd_random_command)
 
+# 大富翁指令
+bot.command(name="game")(start_game)
+bot.command(name="newgame")(new_game)
+bot.command(name="round")(play_round)
+bot.command(name="oppo")(get_opportunity)
+bot.command(name="rule")(game_rule)
+bot.command(name="encounter")(trigger_encounter)
+bot.command(name="event")(trigger_event)
 
-bot.command(name='mockcap')(select_captains_mock)
+bot.command(name='sign')(sign_command)
+
+# 初始化模块
+offline_handler = OfflineHandler(bot, db)
+
+# 仅注册命令（按钮事件已在OfflineHandler内部处理）
+bot.command(name='off')(offline_handler.create_off_command())
+
 # 启动机器人
 if __name__ == "__main__":
     bot.run()

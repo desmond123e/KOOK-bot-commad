@@ -1,0 +1,28 @@
+{
+    "users": {
+        "170144776": {
+            "username": "桃泽野奈",
+            "total_days": 1,
+            "consecutive_days": 1,
+            "last_sign": "2025-04-15T20:20:51.775279+08:00",
+            "energy_total": 20,
+            "daily_energy": 20,
+            "consecutive_bonus": 0
+        },
+        "2620640645": {
+            "username": "迪伦老师",
+            "total_days": 1,
+            "consecutive_days": 1,
+            "last_sign": "2025-04-16T06:17:39.980442+08:00",
+            "energy_total": 20,
+            "daily_energy": 20,
+            "consecutive_bonus": 0
+        }
+    },
+    "daily": {
+        "date": "2025-04-16",
+        "users": [
+            "2620640645"
+        ]
+    }
+}

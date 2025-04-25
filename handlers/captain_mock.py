@@ -1,4 +1,4 @@
-import random
+﻿import random
 import aiohttp
 from bot import config
 from bot import bot
