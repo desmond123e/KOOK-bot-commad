@@ -50,7 +50,7 @@ Aiohttp、Requests、Schedule
 2. 项目部署
 方式一：本地部署
 # 1. 克隆项目
-git clone https://github.com/你的用户名/kook-all-in-one-bot.git
+git clone https://github.com/desmond123e/KOOK-bot-commad.git
 cd kook-all-in-one-bot
 
 # 2. 安装依赖
